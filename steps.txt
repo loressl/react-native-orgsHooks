@@ -1,0 +1,19 @@
+REACT NATIVE
+
+>Criar projeto
+	-npx react-native init nome_projeto
+	-yarn react-native start : habilitar o android virtual
+
+>Utilizando o emulador MEMU
+	-Abre o emulador
+	-cmd: adb connect 127.0.0.1:21503
+	-yarn android 
+
+>Adicionando o vector
+	-yarn react-native link
+
+>Listar dispositivos
+	-adb devices
+
+>Adicionar porta
+	-yarn start --port=3000
