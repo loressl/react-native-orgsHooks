@@ -11,6 +11,7 @@
 import React from 'react';
 import {
   SafeAreaView,
+  StyleSheet,
   useColorScheme,
 } from 'react-native';
 
@@ -28,10 +29,16 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
       <Home />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1
+  }
+})
 
 export default App;
