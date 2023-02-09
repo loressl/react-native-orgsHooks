@@ -1,6 +1,7 @@
 import { ElementType, useEffect, useState } from "react"
 import { FlatList, StyleSheet, Text } from "react-native"
 import { loadingProducers } from "../../../servers/loadingData"
+import { Producer } from "./Producer"
 
 interface ProducersProps {
     Top: ElementType
@@ -29,7 +30,7 @@ export function Producers({Top}: ProducersProps){
         <>
             <FlatList 
                 data={list}
-                renderItem={({item: {name}}) => <Text>{name}</Text>}
+                renderItem={({item}) => <Producer {...item} />}
                 keyExtractor={({name}) => name}
                 ListHeaderComponent={topList}
             />
