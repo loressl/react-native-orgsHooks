@@ -1,7 +1,7 @@
-import { Image, StyleSheet, View } from "react-native"
+import { useState } from "react"
+import { StyleSheet, View } from "react-native"
 
-import star from '../assets/estrela.png'
-import grayStar from '../assets/estrelaCinza.png'
+import { Star } from "./Star"
 
 interface StarsProps {
     quantity: number
@@ -14,24 +14,34 @@ export function Stars({
     edit = false,
     big = false
 }: StarsProps) {
+    const [quantity, setQuantity] = useState(oldQuantity)
 
-    const styles = stylesFunction(big)
+    const renderStars = () => {
+        const starsList = []
+        for (let i = 0; i < 5; i++) {
+            starsList.push(
+                <Star
+                    key={i}
+                    onPress={() => setQuantity(i + 1)}
+                    disabled={!edit}
+                    full={i < quantity}
+                    big={big}
+                />
+            )
+        }
+
+        return starsList
+    }
 
     return (
         <View style={styles.stars}>
-            <Image style={styles.star} source={star} />
-            <Image style={styles.star} source={star} />
+            {renderStars()}
         </View>
     )
 }
 
-const stylesFunction = (big:boolean) => StyleSheet.create({
+const styles = StyleSheet.create({
     stars: {
         flexDirection: 'row'
     },
-    star: {
-        width: big ? 36:12,
-        height: big ? 36:12,
-        marginRight: 2
-    }
 })

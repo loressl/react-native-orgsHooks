@@ -1,4 +1,5 @@
-import { Text, View, Image, StyleSheet } from "react-native"
+import { useState } from "react"
+import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native"
 import { Stars } from "../../../components/Stars"
 
 interface ProducerProps {
@@ -9,18 +10,20 @@ interface ProducerProps {
 }
 
 export function Producer({name, image, distance, stars}: ProducerProps) {
+    const [select, setSelect] = useState(false)
+
     return(
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => setSelect(!select)}>
             <Image style={styles.image} source={image} accessibilityLabel={name} />
             <View style={styles.information}>
                 <View>
                     <Text style={styles.name}>{name}</Text>
-                    <Stars quantity={stars} />
+                    <Stars quantity={stars} edit={select} big={select} />
                 </View>
                 <Text style={styles.distance}>{distance}</Text>
             </View>
 
-        </View>
+        </TouchableOpacity>
     )
 }
 
