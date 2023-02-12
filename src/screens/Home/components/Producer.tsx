@@ -1,26 +1,35 @@
-import { useState } from "react"
+import { useMemo, useReducer } from "react"
 import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native"
 import { Stars } from "../../../components/Stars"
 
-interface ProducerProps {
+export interface ProducerProps {
     name: string
     image: any
-    distance: string
+    distance: number
     stars: number
 }
 
+const distanteInMeters = (distance: number) => {
+    return `${distance}m`
+}
+
 export function Producer({name, image, distance, stars}: ProducerProps) {
-    const [select, setSelect] = useState(false)
+    const [select, invertSelect] = useReducer(
+        (select) => !select,
+        false 
+    )
+
+    const distanteText = useMemo(() => distanteInMeters(distance),[distance]) 
 
     return(
-        <TouchableOpacity style={styles.card} onPress={() => setSelect(!select)}>
+        <TouchableOpacity style={styles.card} onPress={invertSelect}>
             <Image style={styles.image} source={image} accessibilityLabel={name} />
             <View style={styles.information}>
                 <View>
                     <Text style={styles.name}>{name}</Text>
                     <Stars quantity={stars} edit={select} big={select} />
                 </View>
-                <Text style={styles.distance}>{distance}</Text>
+                <Text style={styles.distance}>{distanteText}</Text>
             </View>
 
         </TouchableOpacity>

@@ -1,6 +1,6 @@
-import { ElementType, useEffect, useState } from "react"
+import { ElementType } from "react"
 import { FlatList, StyleSheet, Text } from "react-native"
-import { loadingProducers } from "../../../servers/loadingData"
+import { useProducers } from "../../../hooks/useProducers"
 import { Producer } from "./Producer"
 
 interface ProducersProps {
@@ -8,14 +8,7 @@ interface ProducersProps {
 }
 
 export function Producers({Top}: ProducersProps){
-    const [title, setTitle] = useState('')
-    const [list, setList] = useState<any[]>([])
-
-    useEffect(() => {
-        const response = loadingProducers()
-        setTitle(response.title)
-        setList(response.list)
-    }, [])
+    const [title, list] = useProducers()
 
     const topList = () => {
         return(
@@ -29,7 +22,7 @@ export function Producers({Top}: ProducersProps){
     return(
         <>
             <FlatList 
-                data={list}
+                data={list as any[]}
                 renderItem={({item}) => <Producer {...item} />}
                 keyExtractor={({name}) => name}
                 ListHeaderComponent={topList}
