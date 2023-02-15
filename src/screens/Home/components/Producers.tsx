@@ -1,19 +1,19 @@
-import { ElementType } from "react"
 import { FlatList, StyleSheet, Text } from "react-native"
 import { useProducers } from "../../../hooks/useProducers"
 import { Producer } from "./Producer"
+import { Top } from '../components/Top'
 
 interface ProducersProps {
-    Top: ElementType
+    bestProducers: boolean
 }
 
-export function Producers({Top}: ProducersProps){
-    const [title, list] = useProducers()
+export function Producers({bestProducers}: ProducersProps){
+    const [title,list] = useProducers({bestProducers})
 
     const topList = () => {
         return(
             <>
-                <Top />
+                <Top bestProducers={bestProducers} />
                 <Text style={styles.title}>{title}</Text>
             </>
         )

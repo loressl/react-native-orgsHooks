@@ -3,12 +3,19 @@ import { Image, Text, View, StyleSheet } from "react-native";
 import { loadingTop } from '../../../servers/loadingData'
 
 import logo from '../../../assets/logo.png'
+import { useTexts } from "../../../hooks/useTexts";
 
-export function Top() {
+interface ITop {
+    bestProducers: boolean
+}
+
+export function Top({ bestProducers }: ITop) {
     const [top, setTop] = useState({
         welcome: '',
         legend: ''
     })
+
+    const [texts] = useTexts()
 
     useEffect(() => {
         if (loadingTop()) {
@@ -22,8 +29,8 @@ export function Top() {
     return (
         <View style={styles.top}>
             <Image source={logo} style={styles.image} />
-            <Text style={styles.welcome}>{top.welcome}</Text>
-            <Text style={styles.legend} >{top.legend}</Text>
+            <Text style={styles.welcome}>{bestProducers ? "" : top.welcome}</Text>
+            <Text style={styles.legend} >{bestProducers ? texts?.legendBestProducers :top.legend}</Text>
         </View>
     )
 }

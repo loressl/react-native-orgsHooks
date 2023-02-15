@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Home />
+      <Home bestProducers={false} />
     </SafeAreaView>
   );
 };
