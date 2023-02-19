@@ -19,5 +19,5 @@ export function useTexts() {
         setTexts(response)
     }, [])
 
-    return [texts]
+    return texts
 }

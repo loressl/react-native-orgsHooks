@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Producer, Producers } from "../../types"
 import { loadingProducers } from "../servers/loadingData"
 
 interface IUseProducers {
@@ -7,10 +8,10 @@ interface IUseProducers {
 
 export function useProducers({bestProducers}: IUseProducers){
     const [title, setTitle] = useState('')
-    const [list, setList] = useState<any[]>([])
+    const [list, setList] = useState<Producer[]>()
 
     useEffect(() => {
-        const response = loadingProducers()
+        const response = loadingProducers() as Producers
         response.list.sort(
             (itemA, itemB) => itemA.distance - itemB.distance,
         )
@@ -23,5 +24,5 @@ export function useProducers({bestProducers}: IUseProducers){
         setList(newList)
     }, [bestProducers])
 
-    return [title, list]
+    return {title, list}
 }

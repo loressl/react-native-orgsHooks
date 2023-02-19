@@ -7,13 +7,14 @@ export interface ProducerProps {
     image: any
     distance: number
     stars: number
+    onPress: () =>  void
 }
 
 const distanteInMeters = (distance: number) => {
     return `${distance}m`
 }
 
-export function Producer({name, image, distance, stars}: ProducerProps) {
+export function Producer({name, image, distance, stars, onPress }: ProducerProps) {
     const [select, invertSelect] = useReducer(
         (select) => !select,
         false 

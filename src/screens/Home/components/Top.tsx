@@ -15,7 +15,7 @@ export function Top({ bestProducers }: ITop) {
         legend: ''
     })
 
-    const [texts] = useTexts()
+    const texts = useTexts()
 
     useEffect(() => {
         if (loadingTop()) {

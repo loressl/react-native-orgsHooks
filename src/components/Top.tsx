@@ -11,11 +11,11 @@ const HEIGHT_DEFAULT = 270;
 
 interface ITopComponent {
     title: string
-    image: any
-    height: number
+    image?: any
+    height?: number
 }
 
-export function TopComponent({title, image = topo, height= HEIGHT_DEFAULT}:ITopComponent) {
+export function TopComponent({title, image= topo, height= HEIGHT_DEFAULT}:ITopComponent) {
     const styles = functionStyles(height);
     return(
         <>
@@ -26,7 +26,7 @@ export function TopComponent({title, image = topo, height= HEIGHT_DEFAULT}:ITopC
                 onPress={() => {}}
                 style={styles.buttonGoBack}
             >
-                <VoltarSVG color='white' style={styles.goBack} />
+                <VoltarSVG color="white" styles={styles.goBack} />
             </TouchableOpacity>
         </>
     )

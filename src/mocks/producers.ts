@@ -69,24 +69,192 @@ export const producers = {
       image: salad,
       distance: createRandomNumbers(1, 500),
       stars: createRandomNumbers(1, 5),
+      baskets: [
+        {
+          details: {
+            name: 'Salada completa',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: vegetables,
+          },
+          items: [
+            {
+              name: 'Tomate',
+              image: tomato,
+            },
+            {
+              name: 'Brócolis',
+              image: broccoli,
+            },
+            {
+              name: 'Pepino',
+              image: cucumber,
+            },
+          ],
+        },
+        {
+          details: {
+            name: 'Tomate e pepino',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: tomato,
+          },
+          items: [
+            {
+              name: 'Tomate',
+              image: tomato,
+            },
+            {
+              name: 'Pepino',
+              image: cucumber,
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'Jenny Jack Farm',
       image: jennyJack,
       distance: createRandomNumbers(1, 500),
       stars: createRandomNumbers(1, 5),
+      baskets: [
+        {
+          details: {
+            name: 'Muita Batata',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: potato,
+          },
+          items: [
+            {
+              name: 'Batata',
+              image: potato,
+            },
+          ],
+        },
+        {
+          details: {
+            name: 'Tomate e Brócolis',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: broccoli,
+          },
+          items: [
+            {
+              name: 'Tomate',
+              image: tomato,
+            },
+            {
+              name: 'Brócolis',
+              image: broccoli,
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'Grow',
       image: grow,
       distance: createRandomNumbers(1, 500),
       stars: createRandomNumbers(1, 5),
+      baskets: [
+        {
+          details: {
+            name: 'Abobora e Aspargos',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: asparagus,
+          },
+          items: [
+            {
+              name: 'Abóbora',
+              image: pumpkin,
+            },
+            {
+              name: 'Aspargos',
+              image: asparagus,
+            },
+          ],
+        },
+        {
+          details: {
+            name: 'Tomate e Abobora',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: pumpkin,
+          },
+          items: [
+            {
+              name: 'Tomate',
+              image: tomato,
+            },
+            {
+              name: 'Abóbora',
+              image: pumpkin,
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'Potager',
       image: potager,
       distance: createRandomNumbers(1, 500),
       stars: createRandomNumbers(1, 5),
+      bakests: [
+        {
+          details: {
+            name: 'Pepinos',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: cucumber,
+          },
+          items: [
+            {
+              name: 'Pepino',
+              image: cucumber,
+            },
+          ],
+        },
+        {
+          details: {
+            name: 'Brócolis, Aspargos e Cenoura',
+            description:
+              'Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha',
+            price: 'R$ 40,00',
+
+            image: carrot2,
+          },
+          items: [
+            {
+              name: 'Brócolis',
+              image: broccoli,
+            },
+            {
+              name: 'Aspargos',
+              image: asparagus,
+            },
+            {
+              name: 'Cenoura',
+              image: carrot,
+            },
+          ],
+        },
+      ],
     },
   ],
 };

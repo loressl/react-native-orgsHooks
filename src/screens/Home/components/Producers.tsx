@@ -7,11 +7,11 @@ interface ProducersProps {
     bestProducers: boolean
 }
 
-export function Producers({bestProducers}: ProducersProps){
-    const [title,list] = useProducers({bestProducers})
+export function Producers({ bestProducers }: ProducersProps) {
+    const { title, list } = useProducers({ bestProducers })
 
     const topList = () => {
-        return(
+        return (
             <>
                 <Top bestProducers={bestProducers} />
                 <Text style={styles.title}>{title}</Text>
@@ -19,15 +19,23 @@ export function Producers({bestProducers}: ProducersProps){
         )
     }
 
-    return(
-        <>
-            <FlatList 
-                data={list as any[]}
-                renderItem={({item}) => <Producer {...item} />}
-                keyExtractor={({name}) => name}
-                ListHeaderComponent={topList}
-            />
-        </>
+    return (
+        <FlatList
+            data={list}
+            renderItem={({ item }) => 
+                <Producer 
+                    name={item.name} 
+                    distance={item.distance} 
+                    image={item.image}
+                    stars={item.stars}
+                    onPress={() => { }} 
+                />
+            }
+            keyExtractor={({ name }) => name}
+            ListHeaderComponent={topList}
+            style={styles.list}
+        />
+
     )
 }
 
@@ -39,5 +47,8 @@ const styles = StyleSheet.create({
         marginTop: 16,
         fontWeight: 'bold',
         color: "#464646"
+    },
+    list: {
+        backgroundColor: "#ffffff"
     }
 })
