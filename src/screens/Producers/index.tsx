@@ -1,13 +1,13 @@
-import { FlatList, StyleSheet, Text } from "react-native"
-import { useProducers } from "../../../hooks/useProducers"
-import { Producer } from "./Producer"
-import { Top } from '../components/Top'
+import { FlatList, StyleSheet, Text } from "react-native";
+import { useProducers } from "../../hooks/useProducers";
+import { Producer } from "./components/Producer";
+import { Top } from "./components/Top";
 
 interface ProducersProps {
     bestProducers: boolean
 }
 
-export function Producers({ bestProducers }: ProducersProps) {
+export function Producers({bestProducers}: ProducersProps) {
     const { title, list } = useProducers({ bestProducers })
 
     const topList = () => {

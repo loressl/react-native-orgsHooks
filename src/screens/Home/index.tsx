@@ -1,12 +1,7 @@
-import { Producers } from "./components/Producers";
+import { Producers } from "../Producers";
 
-interface HomeProps {
-    bestProducers: boolean
-}
-
-export function Home({bestProducers}: HomeProps) {
-   
-    return (
-        <Producers bestProducers={bestProducers} />
+export function Home(){
+    return(
+        <Producers bestProducers={false} />
     )
 }
