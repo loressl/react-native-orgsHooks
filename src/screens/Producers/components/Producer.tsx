@@ -23,7 +23,7 @@ export function Producer({name, image, distance, stars, onPress }: ProducerProps
     const distanteText = useMemo(() => distanteInMeters(distance),[distance]) 
 
     return(
-        <TouchableOpacity style={styles.card} onPress={invertSelect}>
+        <TouchableOpacity style={styles.card} onPress={onPress}>
             <Image style={styles.image} source={image} accessibilityLabel={name} />
             <View style={styles.information}>
                 <View>

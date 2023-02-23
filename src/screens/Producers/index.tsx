@@ -1,3 +1,5 @@
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { FlatList, StyleSheet, Text } from "react-native";
 import { useProducers } from "../../hooks/useProducers";
 import { Producer } from "./components/Producer";
@@ -8,6 +10,8 @@ interface ProducersProps {
 }
 
 export function Producers({bestProducers}: ProducersProps) {
+    const { navigate } = useNavigation<NativeStackNavigationProp<ParamListBase>>()
+
     const { title, list } = useProducers({ bestProducers })
 
     const topList = () => {
@@ -19,6 +23,10 @@ export function Producers({bestProducers}: ProducersProps) {
         )
     }
 
+    const handleProducer = () =>{
+        navigate('Produtor')
+    }
+
     return (
         <FlatList
             data={list}
@@ -28,7 +36,7 @@ export function Producers({bestProducers}: ProducersProps) {
                     distance={item.distance} 
                     image={item.image}
                     stars={item.stars}
-                    onPress={() => { }} 
+                    onPress={handleProducer} 
                 />
             }
             keyExtractor={({ name }) => name}
