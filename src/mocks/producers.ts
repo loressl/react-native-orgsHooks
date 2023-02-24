@@ -213,7 +213,7 @@ export const producers = {
       image: potager,
       distance: createRandomNumbers(1, 500),
       stars: createRandomNumbers(1, 5),
-      bakests: [
+      baskets: [
         {
           details: {
             name: 'Pepinos',
