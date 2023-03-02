@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Producer } from "../screens/Producer"
 import { Home } from "../screens/Home";
+import { Basket } from "../screens/Basket";
 
 type ProducerRoutesProps = {
     MainComponent?: any
@@ -13,6 +14,7 @@ export function ProducerRoutes({ MainComponent = Home }: ProducerRoutesProps){
         <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="HomeScreen" component={MainComponent} />
             <Stack.Screen name="Produtor" component={Producer} />
+            <Stack.Screen name="Cesta" component={Basket} />
         </Stack.Navigator>
     )
 }

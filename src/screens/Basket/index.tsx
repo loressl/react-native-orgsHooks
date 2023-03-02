@@ -1,5 +1,6 @@
+import { useRoute } from "@react-navigation/native"
 import { FlatList, StyleSheet, View } from "react-native"
-import { Producer } from "../../../types"
+import { Producer, Item, Details } from "../../../types"
 import { TextComponent } from "../../components/Text"
 
 import { TopComponent } from '../../components/Top'
@@ -7,28 +8,32 @@ import { useTexts } from "../../hooks/useTexts"
 import { DetailsComponent } from "./components/Details"
 import { ItemComponent } from "./components/Item"
 
-
-interface BasketProps {
+type RouteParams = {
     producer: Producer
+    items: Item[]
+    details: Details
 }
 
-export function Basket({producer}: BasketProps) {
+export function Basket() {
+    const route = useRoute()
     const text = useTexts()
+
+    const {producer, items, details} = route.params as RouteParams
 
     return (
         <>
             <FlatList
-                data={producer.baskets[0].items}
+                data={items}
                 renderItem={ItemComponent}
                 keyExtractor={(item) => item.name}
                 ListHeaderComponent={() =>
                     <>
-                        <TopComponent title={text.titleBaskets} />
+                        <TopComponent title={text.topBasket} />
                         <View style={styles.basket}>
                             <DetailsComponent
                                 producer={producer}
-                                price={producer.baskets[0].details.price}
-                                description={producer.baskets[0].details.description}
+                                price={details.price}
+                                description={details.description}
                                 name={producer.name}
                             />
                             <TextComponent text={text?.titleItens} newStyles={styles.title} />

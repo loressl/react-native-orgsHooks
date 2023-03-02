@@ -1,3 +1,5 @@
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Basket as BasketType, Producer } from "../../../../types";
 import { TextComponent } from "../../../components/Text";
@@ -8,12 +10,16 @@ type BasketProps = {
 }
 
 export function Basket({item, producer}: BasketProps) {
+    const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>()
     const { details, items } = item
     const { description, image, name, price } = details
 
     return(
         <TouchableOpacity
             style={styles.basket}
+            onPress={() => navigation.navigate('Cesta', {
+                details, items, producer
+            })}
         >
             <View style={styles.context}>
                 <Image source={image} style={styles.image}/>

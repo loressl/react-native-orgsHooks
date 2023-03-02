@@ -1,3 +1,5 @@
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Producer } from "../../../../types";
 import { TextComponent } from '../../../components/Text'
@@ -12,6 +14,7 @@ interface DetailsProps {
 
 export function DetailsComponent({ name, producer, description, price }: DetailsProps) {
     const text = useTexts()
+    const { popToTop } = useNavigation<NativeStackNavigationProp<ParamListBase>>()
 
     return (
         <>
@@ -25,7 +28,7 @@ export function DetailsComponent({ name, producer, description, price }: Details
 
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => {}}
+                onPress={() => popToTop()}
             >
                 <TextComponent newStyles={styles.textButton} text={text.buttonBut} />
             </TouchableOpacity>
