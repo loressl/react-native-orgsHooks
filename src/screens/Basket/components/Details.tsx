@@ -14,7 +14,7 @@ interface DetailsProps {
 
 export function DetailsComponent({ name, producer, description, price }: DetailsProps) {
     const text = useTexts()
-    const { popToTop } = useNavigation<NativeStackNavigationProp<ParamListBase>>()
+    const { navigate } = useNavigation<NativeStackNavigationProp<ParamListBase>>()
 
     return (
         <>
@@ -28,7 +28,7 @@ export function DetailsComponent({ name, producer, description, price }: Details
 
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => popToTop()}
+                onPress={() => navigate('HomeScreen', { buy: { name } })}
             >
                 <TextComponent newStyles={styles.textButton} text={text.buttonBut} />
             </TouchableOpacity>

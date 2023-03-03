@@ -6,6 +6,7 @@ const texts ={
     topBasket: "Detalhe da cesta",
     buttonBut: "Comprar",
     titleItens: "Itens da cesta", 
+    buyMessage: "Agradecemos pela compra da cesta $NAME, seu pedido chegará em breve!"
 }
 
 export { texts }

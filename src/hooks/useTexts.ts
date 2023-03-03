@@ -9,6 +9,7 @@ interface ITexts {
     topBasket: string
     buttonBut: string
     titleItens: string
+    buyMessage: string
 }
 
 export function useTexts() {
