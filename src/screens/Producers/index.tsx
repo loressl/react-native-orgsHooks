@@ -1,5 +1,6 @@
 import { ParamListBase, useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack/lib/typescript/src/types";
+import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text } from "react-native";
 import { Producer as ProducerType } from "../../../types";
 import { useProducers } from "../../hooks/useProducers";
@@ -14,6 +15,7 @@ interface ProducersProps {
 type RouteParams = {
     buy: {
         name: string
+        timestamp: any
     }
 }
 
@@ -22,23 +24,34 @@ export function Producers({bestProducers}: ProducersProps) {
     const route = useRoute()
     const text = useTexts()
 
+    const [showMessage, setShowMessage] = useState(false)
+    const [fullMessage, setFullMessage] = useState<any>(undefined)
+
     const value = route.params as RouteParams
 
     const { title, list } = useProducers({ bestProducers })
-
-    let fullMessage:any = undefined
     
-    if(value) {
-        fullMessage= text.buyMessage?.replace('$NAME', value.buy.name)
-    }
+    useEffect(() => {
+        let timeout: number;
+        
+        if(value) {
+            setFullMessage(text.buyMessage?.replace('$NAME', value.buy.name))
+            setShowMessage(!!value)
+            timeout = setTimeout(()=> {
+                setShowMessage(false)
+                setFullMessage(undefined)
+            }, 3000)
+        }
 
+        return () => clearTimeout(timeout)
 
+    },[value.buy.timestamp])
 
     const topList = () => {
         return (
             <>
                 <Top bestProducers={bestProducers} />
-                { value && <Text style={styles.buy}>{fullMessage}</Text>}
+                { showMessage && <Text style={styles.buy}>{fullMessage}</Text>}
                 <Text style={styles.title}>{title}</Text>
             </>
         )

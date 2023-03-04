@@ -28,7 +28,7 @@ export function DetailsComponent({ name, producer, description, price }: Details
 
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigate('HomeScreen', { buy: { name } })}
+                onPress={() => navigate('Resumo', { buy: { name, timestamp: + new Date() } })} //pode mudar pra HomeScreen
             >
                 <TextComponent newStyles={styles.textButton} text={text.buttonBut} />
             </TouchableOpacity>

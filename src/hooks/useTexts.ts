@@ -10,6 +10,10 @@ interface ITexts {
     buttonBut: string
     titleItens: string
     buyMessage: string
+    buyTop: string
+    buyTitle: string
+    homeBuyButton: string
+    producerBuyButton: string
 }
 
 export function useTexts() {

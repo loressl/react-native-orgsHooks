@@ -6,7 +6,11 @@ const texts ={
     topBasket: "Detalhe da cesta",
     buttonBut: "Comprar",
     titleItens: "Itens da cesta", 
-    buyMessage: "Agradecemos pela compra da cesta $NAME, seu pedido chegará em breve!"
+    buyMessage: "Agradecemos pela compra da cesta $NAME, seu pedido chegará em breve!",
+    buyTop: "Pedido feito com sucesso!",
+    buyTitle: "Parabéns!",
+    homeBuyButton: "Voltar a Home",
+    producerBuyButton: "Voltar ao Produtor",
 }
 
 export { texts }
